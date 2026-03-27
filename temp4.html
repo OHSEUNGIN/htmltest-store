@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .container{
+            display:flex;
+            gap:20px;
+            flex-wrap: wrap;
+        }
+        .card{
+            width: 200px;
+            height: 250px;
+            border: 1px solid black;
+
+            transition:2s;
+        }
+        .card:hover{transform:scale(1.05)}
+        .card:hover .badge{
+            transform:scale(1.2);
+        }
+
+        .image {
+            height: 150px;
+            position: relative;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* 이미지 크기 자동 조절 + 잘림 방지 */
+        .image img {
+            max-width: 100%;
+            max-height: 100%;
+            display: block;
+        }
+
+        /* 좌측 상단 SALE */
+        .badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+
+            background: red;
+            color: white;
+
+            padding: 5px 8px;
+
+            transition:0.3s;
+        }
+
+        /* 이미지 아래쪽 가격 바 */
+        .price {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+
+            width: 100%;
+
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+
+            padding: 5px;
+            box-sizing: border-box;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .buy-btn {
+            background: orange;
+            color: white;
+            padding: 4px 8px;
+        }
+
+        .title {
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+<div class="container">
+    <div class="card">
+
+        <div class="image">
+            <img src="Me.gif" alt="도시락 사진">
+            <div class="badge">SALE</div>
+    
+            <div class="price">
+                <span>₩4,500</span>
+                <div class="buy-btn">구매하기</div>
+            </div>
+        </div>
+
+        <div class="title">
+            도시락
+        </div>
+
+    </div>
+    <div class="card">
+
+        <div class="image">
+            <img src="Me.gif" alt="도시락 사진">
+            <div class="badge">SALE</div>
+    
+            <div class="price">
+                <span>₩4,500</span>
+                <div class="buy-btn">구매하기</div>
+            </div>
+        </div>
+
+        <div class="title">
+            도시락
+        </div>
+
+    </div>
+    <div class="card">
+
+        <div class="image">
+            <img src="Me.gif" alt="도시락 사진">
+            <div class="badge">SALE</div>
+    
+            <div class="price">
+                <span>₩4,500</span>
+                <div class="buy-btn">구매하기</div>
+            </div>
+        </div>
+
+        <div class="title">
+            도시락
+        </div>
+
+    </div>
+    <div class="card">
+
+        <div class="image">
+            <img src="Me.gif" alt="도시락 사진">
+            <div class="badge">SALE</div>
+    
+            <div class="price">
+                <span>₩4,500</span>
+                <div class="buy-btn">구매하기</div>
+            </div>
+        </div>
+
+        <div class="title">
+            도시락
+        </div>
+
+    </div>
+    <div class="card">
+
+        <div class="image">
+            <img src="Me.gif" alt="도시락 사진">
+            <div class="badge">SALE</div>
+    
+            <div class="price">
+                <span>₩4,500</span>
+                <div class="buy-btn">구매하기</div>
+            </div>
+        </div>
+
+        <div class="title">
+            도시락
+        </div>
+
+    </div>
+</div>
+
+</body>
+
+</html>
