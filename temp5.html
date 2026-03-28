@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body{
+            margin:0;
+        }
+        .header {
+            background-color: lightblue;
+            height: 80px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 40px;
+        }
+
+        .logo img {
+            height: 50px;
+        }
+
+        .menu {
+            display: flex;
+            gap: 30px;
+
+            font-weight: bold;
+        }
+
+        .menu div:hover {
+            color: orange;
+        }
+
+        .login-btn {
+            background-color: orange;
+            padding: 8px 18px;
+
+            border-radius: 5px;
+
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .login-btn:hover {
+            background-color: darkorange;
+        }
+
+        .main {
+            display: flex;
+        }
+
+        .sidebar {
+            background-color: lightyellow;
+            width: 200px;
+            height: 400px;
+            box-sizing: border-box;
+
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: 20px;
+
+        }
+
+        .side-item {
+            background-color: orange;
+            padding: 10px;
+            cursor: pointer;
+
+            transition: 0.2s;
+        }
+
+        .side-item:hover {
+            background-color: darkorange;
+        }
+
+        .content {
+            background-color: white;
+            flex: 1;
+            min-height: 400px;
+
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+
+            padding: 20px;
+            box-sizing: border-box;
+            align-content: flex-start;
+        }
+
+        .card {
+            width: 200px;
+            height: 260px;
+            border: 1px solid black;
+            border-radius: 10px;
+
+            overflow: visible;
+            cursor: pointer;
+            transition: 0.3s;
+
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover .badge {
+            transform: rotate(-6deg) scale(1.06);           
+        }
+        .card:hover .product-img {
+            transform: scale(1.1);
+        } 
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .image {
+            height: 140px;
+            position: relative;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            overflow: visible;
+            background-color: #f5f5f5;
+        }
+
+        .image .product-img {
+            max-width: 100%;
+            max-height: 100%;
+            display: block;
+            transition: 0.3s;
+        }
+
+
+
+
+
+        .badge {
+            position: absolute;
+            top: -8px;
+            left: -8px;
+
+            width: 54px;
+
+            /*background-color: red;*/
+            color: white;
+            padding: 5px 8px;
+            font-size: 12px;
+            border-radius: 5px;
+            z-index: 5;
+            filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.35));
+
+            transition: 0.25s;
+
+        }
+
+      
+
+        .title {
+            padding: 10px 10px 5px 10px;
+        }
+
+        .price {
+            padding: 0 10px;
+            color: gray;
+            font-size: 14px;
+        }
+
+        .button {
+            margin-top: auto;
+            background-color: orange;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 6px;
+
+            padding: 10px;
+            cursor: pointer;
+
+            transition: 0.2s;
+        }
+
+        .button img {
+            width: 32px;
+        }
+
+        .button:hover {
+            background-color: darkorange;
+        }
+        .button:hover img{
+            transform: rotate(-15deg);
+        }
+
+        .footer {
+            background-color: #222;
+            padding: 20px;
+
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+
+            font-size: 14px;
+            color: white;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="logo">
+            <img src="pics/logo2.png">
+        </div>
+
+        <div class="menu">
+            <div>상품</div>
+            <div>이벤트</div>
+            <div>고객센터</div>
+        </div>
+
+        <div class="login-btn">
+            로그인
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="sidebar">
+            <div class="side-item">홈</div>
+            <div class="side-item">상품목록</div>
+            <div class="side-item">이벤트</div>
+            <div class="side-item">고객센터</div>
+        </div>
+        <div class="content">
+            <div class="card">
+                <div class="image">
+                    <img class="badge" src="pics/bdg1.png">
+                    <img class="product-img" src="pics/item1.png">
+                </div>
+                <div class="title">도시락</div>
+                <div class="price">₩5000</div>
+                <div class="button">
+                    <img src="pics/cart1.png">
+                    <span>장바구니 담기</span>
+                </div>
+            </div>
+            <div class="card">
+                <div class="image">
+                    <img class="badge" src="pics/bdg2.png">
+                    <img class="product-img" src="pics/item2.png">
+                </div>
+                <div class="title">삼각김밥</div>
+                <div class="price">₩1300</div>
+                <div class="button">
+                    <img src="pics/cart1.png">
+                    <span>장바구니 담기</span>
+                </div>
+            </div>
+            <div class="card">
+                <div class="image">
+                    <img class="badge" src="pics/bdg3.png">
+                    <img class="product-img" src="pics/item3.png">
+                </div>
+                <div class="title">컵라면</div>
+                <div class="price">₩1500</div>
+                <div class="button">
+                    <img src="pics/cart1.png">
+                    <span>장바구니 담기</span>
+                </div>
+            </div>
+            <div class="card">
+                <div class="image">
+                    <img class="badge" src="pics/bdg4.png">
+                    <img class="product-img" src="pics/item4.png">
+                </div>
+                <div class="title">샌드위치</div>
+                <div class="price">₩3200</div>
+                <div class="button">
+                    <img src="pics/cart1.png">
+                    <span>장바구니 담기</span>
+                </div>
+            </div>
+            <div class="card">
+                <div class="image">
+                    <img class="badge" src="pics/bdg5.png">
+                    <img class="product-img" src="pics/item5.png">
+                </div>
+                <div class="title">핫도그</div>
+                <div class="price">₩2000</div>
+                <div class="button">
+                    <img src="pics/cart1.png">
+                    <span>장바구니 담기</span>
+                </div>
+            </div>
+            <div class="card">
+                <div class="image">
+                    <img class="badge" src="pics/bdg1.png">
+                    <img class="product-img" src="pics/item6.png">
+                </div>
+                <div class="title">바나나우유</div>
+                <div class="price">₩1800</div>
+                <div class="button">
+                    <img src="pics/cart1.png">
+                    <span>장바구니 담기</span>
+                </div>
+            </div>
+            <div class="card">
+                <div class="image">
+                    <img class="badge" src="pics/bdg3.png">
+                    <img class="product-img" src="pics/item7.png">
+                </div>
+                <div class="title">초코우유</div>
+                <div class="price">₩1800</div>
+                <div class="button">
+                    <img src="pics/cart1.png">
+                    <span>장바구니 담기</span>
+                </div>
+            </div>
+            <div class="card">
+                <div class="image">
+                    <img class="badge" src="pics/bdg5.png">
+                    <img class="product-img" src="pics/item8.png">
+                </div>
+                <div class="title">군고구마</div>
+                <div class="price">₩2000</div>
+                <div class="button">
+                    <img src="pics/cart1.png">
+                    <span>장바구니 담기</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div>회사명: 우리편의점
+        </div>
+        <div>전화:
+            02-1234-5678
+        </div>
+        <div>이메일:
+            store@test.com
+        </div>
+        <div>© 2026 우리
+            편의점. All
+            rights
+            reserved.
+        </div>
+    </div>
+
+</body>
+
+</html>
