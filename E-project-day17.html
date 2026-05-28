@@ -1,0 +1,1553 @@
+<style>
+  .detail-page {
+    display: flex;
+    gap: 40px;
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 20px;
+    align-items: flex-start;
+  }
+
+  .detail-left {
+    flex: 1.2;
+  }
+
+  .detail-right {
+    flex: 0.8;
+    position: sticky;
+    top: 100px;
+    align-self: flex-start;
+  }
+
+  .detail-box {
+    background: #fafafa;
+    padding: 24px;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+
+    transition: 0.25s;
+  }
+
+  .detail-box.compact {
+    padding: 16px;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.14);
+  }
+
+  .detail-box.compact .total-box {
+    margin-bottom: 16px;
+    padding-top: 14px;
+  }
+
+  .detail-box.compact .product-title {
+    font-size: 20px;
+  }
+
+  .detail-box.compact .option-area {
+    opacity: 1;
+    max-height: none;
+    overflow: visible;
+    margin-bottom: 30px;
+
+    transform: translateY(0);
+  }
+
+  .detail-box.compact {
+    padding: 18px;
+  }
+
+  .detail-box.compact .product-price {
+    font-size: 22px;
+    margin-bottom: 16px;
+  }
+
+  .main-image {
+    height: 500px;
+
+    border-radius: 16px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background-size: cover;
+    background-position: center;
+  }
+
+  .main-product-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .image-overlay {
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15));
+    pointer-events: none;
+  }
+
+  .thumbnail-list {
+    display: flex;
+    gap: 12px;
+    margin-top: 16px;
+  }
+
+  .thumbnail {
+    width: 88px;
+    height: 88px;
+
+    border: none;
+    border-radius: 12px;
+
+    background-size: cover;
+    background-position: center;
+
+    color: #aaa;
+    font-weight: bold;
+    font-size: 13px;
+
+    position: relative;
+    overflow: hidden;
+
+    cursor: pointer;
+  }
+
+  .thumbnail::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.5);
+  }
+
+  .thumbnail {
+    position: relative;
+  }
+
+  .thumbnail {
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
+  }
+
+  .thumbnail span {
+    position: relative;
+    z-index: 2;
+  }
+
+  .product-title {
+    font-size: 26px;
+    margin-bottom: 12px;
+    line-height: 1.35;
+    transition: 0.25s;
+  }
+
+  .product-price {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 32px;
+    transition: 0.25s;
+  }
+
+  .option-area {
+    margin-bottom: 30px;
+    max-height: 300px;
+    transform: translateY(0);
+    transition:
+      opacity 0.25s,
+      max-height 0.25s,
+      margin-bottom 0.25s,
+      transform 0.25s;
+  }
+
+  .option-group {
+    margin-bottom: 24px;
+  }
+
+  .option-title {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  .option-buttons {
+    display: flex;
+    gap: 10px;
+  }
+
+  .option-btn {
+    padding: 10px 16px;
+    border: 1px solid #ddd;
+    background: white;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s;
+  }
+
+  .option-btn:not(.active):hover {
+    border-color: #111;
+    transform: translateY(-2px);
+  }
+
+  .option-btn.active {
+    background: #111;
+    color: white;
+    border-color: #111;
+    transform: scale(0.9);
+  }
+
+  .quantity-box {
+    display: flex;
+    align-items: center;
+    width: 120px;
+    height: 38px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .quantity-btn {
+    width: 38px;
+    height: 38px;
+    border: none;
+    background: white;
+    cursor: pointer;
+    font-size: 18px;
+  }
+
+  .quantity-btn:hover {
+    background: #f3f3f3;
+  }
+
+  .quantity-num {
+    flex: 1;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  .cart-action-row {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+
+  .add-cart-btn {
+    height: 40px;
+    padding: 0 18px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: #f3f3f3;
+
+    cursor: pointer;
+    transition: 0.2s;
+  }
+
+  .add-cart-btn:hover {
+    background: #111;
+    color: white;
+  }
+
+  .total-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    padding-top: 20px;
+    border-top: 1px solid #e5e5e5;
+    transition: 0.25s;
+  }
+
+  .total-label {
+    font-size: 15px;
+    color: #666;
+  }
+
+  .total-price {
+    font-size: 28px;
+    font-weight: bold;
+  }
+
+  .buy-btn {
+    width: 100%;
+    padding: 16px;
+    border: none;
+    background: #111;
+    color: white;
+    font-size: 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition:
+      background 0.2s,
+      transform 0.2s;
+  }
+
+  .buy-btn:hover {
+    background: #333;
+    transform: translateY(-2px);
+  }
+
+  .detail-tabs {
+    display: flex;
+    border-bottom: 1px solid #ddd;
+    background: white;
+
+    position: sticky;
+    top: 0px;
+    z-index: 10;
+  }
+
+  .detail-tab {
+    flex: 1;
+    padding: 16px 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 15px;
+    color: #777;
+    border-bottom: 2px solid transparent;
+
+    transition: 0.2s;
+  }
+
+  .detail-tab:hover {
+    color: #111;
+    background: #f7f7f7;
+  }
+
+  .detail-tab.active {
+    color: #111;
+    font-weight: bold;
+    border-bottom-color: #111;
+    transform: translateY(-4px);
+  }
+
+  .detail-tabs.scrolled {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(8px);
+  }
+
+  .detail-content {
+    margin-top: 60px;
+  }
+
+  .content-section {
+    padding: 120px 20px;
+    text-align: center;
+    background: #f7f7f7;
+  }
+
+  .content-section h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+  }
+
+  .content-text {
+    line-height: 1.8;
+    color: #555;
+    font-size: 15px;
+  }
+
+  .detail-title {
+    font-size: 42px;
+    margin-bottom: 24px;
+    font-weight: 700;
+    letter-spacing: -1px;
+  }
+
+  .detail-desc {
+    max-width: 720px;
+    margin: 0 auto 60px;
+
+    font-size: 18px;
+    line-height: 1.8;
+    color: #555;
+  }
+
+  .detail-visual {
+    margin-top: 40px;
+    padding: 80px 40px;
+
+    background: #f7f7f7;
+    border-radius: 28px;
+
+    text-align: center;
+  }
+
+  .detail-img {
+    width: 100%;
+    max-width: 860px;
+    display: block;
+
+    margin: 0 auto 48px;
+
+    border-radius: 24px;
+
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.14);
+  }
+
+  .detail-title {
+    margin: 0 0 18px;
+
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: -1px;
+    color: #111;
+  }
+
+  .detail-desc {
+    max-width: 680px;
+    margin: 0 auto;
+
+    font-size: 17px;
+    line-height: 1.8;
+    color: #555;
+  }
+
+  .detail-image:hover {
+    transform: translateY(-4px);
+  }
+
+  .cart-box {
+    margin-top: 24px;
+    padding: 16px;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    background: white;
+  }
+
+  .cart-box h3 {
+    margin: 0 0 12px;
+    font-size: 16px;
+  }
+
+  .cart-list {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.6;
+  }
+
+  .cart-item {
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+  }
+
+  .cart-item-row {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+
+  .cart-item-image {
+    width: 70px;
+    height: 70px;
+
+    border-radius: 10px;
+    object-fit: cover;
+
+    flex-shrink: 0;
+  }
+
+  .cart-item-info {
+    flex: 1;
+  }
+
+  .cart-item-top {
+    font-size: 14px;
+    margin-bottom: 6px;
+  }
+
+  .cart-item-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    font-size: 14px;
+  }
+
+  .info-box {
+    background: #fafafa;
+    border: 1px solid #eee;
+    border-radius: 16px;
+    padding: 24px;
+    line-height: 1.8;
+    color: #555;
+  }
+
+  .detail-box.compact .buy-btn {
+    padding: 12px;
+    font-size: 15px;
+  }
+
+  .cart-total {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid #eee;
+
+    font-size: 15px;
+    font-weight: bold;
+    text-align: right;
+  }
+
+  .cart-section {
+    margin-top: 28px;
+    padding-top: 24px;
+    border-top: 1px solid #e5e5e5;
+  }
+
+  .cart-item-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .remove-cart-btn {
+    border: none;
+    background: #eee;
+
+    padding: 6px 10px;
+    border-radius: 6px;
+
+    cursor: pointer;
+    font-size: 12px;
+  }
+
+  .remove-cart-btn:hover {
+    background: #111;
+    color: white;
+  }
+
+  .cart-quantity-btn {
+    width: 28px;
+    height: 28px;
+
+    border: none;
+    border-radius: 6px;
+
+    background: #eee;
+    cursor: pointer;
+  }
+
+  .cart-quantity-btn:hover {
+    background: #111;
+    color: white;
+  }
+
+  .clear-cart-btn {
+    width: 100%;
+    margin-top: 12px;
+    padding: 10px;
+
+    border: none;
+    border-radius: 8px;
+    background: #eee;
+
+    cursor: pointer;
+  }
+
+  .clear-cart-btn:hover {
+    background: #111;
+    color: white;
+  }
+
+  .cart-item-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .cart-list {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+  }
+
+  @media (max-width: 768px) {
+    .detail-page {
+      display: block;
+      margin: 20px auto;
+      padding: 16px;
+      padding-bottom: 100px;
+    }
+
+    .total-box {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 6px;
+    }
+
+    .detail-right {
+      position: static;
+      margin-top: 24px;
+    }
+
+    .main-image {
+      height: 320px;
+    }
+
+    .thumbnail {
+      width: 64px;
+      height: 64px;
+    }
+
+    .detail-visual {
+      padding: 48px 18px;
+      border-radius: 20px;
+    }
+
+    .detail-img {
+      margin-bottom: 32px;
+      border-radius: 18px;
+    }
+
+    .detail-title {
+      font-size: 26px;
+    }
+
+    .detail-desc {
+      font-size: 15px;
+    }
+
+    .product-title {
+      font-size: 22px;
+    }
+
+    .product-price {
+      font-size: 24px;
+    }
+
+    .detail-content {
+      margin-top: 40px;
+    }
+
+    .content-section {
+      padding: 60px 0;
+    }
+
+    .detail-box {
+      padding: 18px;
+      border-radius: 14px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+    }
+
+    .option-buttons {
+      flex-wrap: wrap;
+    }
+
+    .option-btn {
+      flex: 1;
+      min-width: 80px;
+    }
+
+    .direct-buy-btn {
+      margin-bottom: 24px;
+    }
+
+    .cart-buy-btn {
+      margin-top: 12px;
+    }
+
+    .buy-btn {
+      position: static;
+      width: 100%;
+    }
+
+    .cart-item-row {
+      align-items: flex-start;
+    }
+
+    .cart-item-bottom {
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .cart-item-right {
+      width: 100%;
+      justify-content: space-between;
+    }
+
+    .cart-item-actions {
+      flex-shrink: 0;
+    }
+  }
+</style>
+<div class="detail-page">
+  <div class="detail-left">
+    <div class="main-image">
+      <img src="" class="main-product-image" />
+      <div class="image-overlay"></div>
+    </div>
+    <div class="thumbnail-list">
+      <button class="thumbnail active" data-view="front">
+        <span>앞모습</span>
+      </button>
+      <button class="thumbnail" data-view="back">
+        <span>뒷모습</span>
+      </button>
+    </div>
+    <div class="detail-content">
+      <div class="detail-tabs">
+        <button class="detail-tab active" data-target="description">
+          상품설명
+        </button>
+        <button class="detail-tab" data-target="delivery">배송정보</button>
+        <button class="detail-tab" data-target="refund">교환환불</button>
+      </div>
+      <section class="content-section" id="description">
+        <h2>상품 설명</h2>
+
+        <p class="content-text">
+          부드러운 코튼 소재와 오버핏 실루엣으로 제작된 프리미엄 반팔
+          티셔츠입니다. 사계절 활용 가능한 기본 아이템이며 다양한 하의와 쉽게
+          매치 가능합니다.
+        </p>
+
+        <div class="detail-visual">
+          <img src="pics/E_project/E_1/Desc1.png" class="detail-img" />
+          <h2 class="detail-title">자연스럽게 떨어지는 숄더 핏</h2>
+          <p class="detail-desc">
+            과하지 않게 떨어지는 어깨 라인으로 체형에 관계없이 편안하고
+            자연스러운 실루엣을 연출합니다.
+          </p>
+        </div>
+        <div class="detail-visual">
+          <img src="pics/E_project/E_1/Desc2.png" class="detail-img" />
+          <h2 class="detail-title">탄탄하게 마감된 소매 디테일</h2>
+          <p class="detail-desc">
+            늘어짐을 최소화한 이중 스티치 마감으로 오랜 착용에도 안정적인 핏을
+            유지합니다.
+          </p>
+        </div>
+      </section>
+
+      <section class="content-section" id="delivery">
+        <h2>배송 정보</h2>
+
+        <div class="info-box">
+          <p>배송 방법: 택배 배송</p>
+          <p>배송 기간: 결제 후 2~3일 이내 출고</p>
+          <p>배송비: 3000원 / 50,000원 이상 무료배송</p>
+        </div>
+      </section>
+
+      <section class="content-section" id="refund">
+        <h2>교환/환불</h2>
+      </section>
+    </div>
+  </div>
+
+  <div class="detail-right">
+    <div class="detail-box">
+      <h1 class="product-title">프리미엄 반팔 티셔츠</h1>
+
+      <p class="product-price">29,000원</p>
+
+      <div class="option-area">
+        <div class="option-group" data-type="color">
+          <p class="option-title">색상</p>
+
+          <div class="option-buttons">
+            <button class="option-btn active" data-color="black">블랙</button>
+            <button class="option-btn" data-color="white">화이트</button>
+            <button class="option-btn" data-color="navy">네이비</button>
+          </div>
+        </div>
+
+        <div class="option-group" data-type="size">
+          <p class="option-title">사이즈</p>
+          <div class="option-buttons">
+            <button class="option-btn" data-size="M" data-price="0">M</button>
+            <button class="option-btn active" data-size="L" data-price="2000">
+              L +2,000원
+            </button>
+            <button class="option-btn" data-size="XL" data-price="4000">
+              XL +4,000원
+            </button>
+          </div>
+        </div>
+        <div class="cart-action-row">
+          <div class="quantity-box">
+            <button class="quantity-btn">-</button>
+            <span class="quantity-num">1</span>
+            <button class="quantity-btn">+</button>
+          </div>
+
+          <button class="add-cart-btn">담기</button>
+        </div>
+      </div>
+      <div class="total-box">
+        <p class="total-label">현재 선택 금액</p>
+        <p class="total-price">29,000원</p>
+      </div>
+
+      <button class="buy-btn direct-buy-btn">선택 상품 바로 구매</button>
+
+      <div class="cart-section">
+        <h3>장바구니</h3>
+
+        <div class="cart-list">장바구니가 비어 있습니다.</div>
+
+        <div class="cart-total">장바구니 합계: 0원</div>
+        <button class="buy-btn cart-buy-btn">장바구니 상품 구매</button>
+        <button class="clear-cart-btn">장바구니 비우기</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  const detailTabs = document.querySelectorAll(".detail-tab");
+
+  let currentActiveTab = detailTabs[0];
+  let tabActiveOffset = 0;
+
+  detailTabs.forEach(function (tab) {
+    tab.addEventListener("click", function () {
+      if (currentActiveTab === tab) {
+        return;
+      }
+      const targetId = tab.dataset.target;
+
+      currentActiveTab.classList.remove("active");
+      tab.classList.add("active");
+      currentActiveTab = tab;
+
+      const targetSection = document.querySelector("#" + targetId);
+
+      //targetSection.scrollIntoView({ behavior: "smooth" });
+
+      const targetPosition = targetSection.offsetTop - tabActiveOffset;
+
+      startAutoScroll();
+      window.scrollTo({
+        top: targetPosition,
+        behavior: "smooth",
+      });
+    });
+  });
+
+  const detailContent = document.querySelector(".detail-content");
+  const detailBox = document.querySelector(".detail-box");
+  const sections = document.querySelectorAll(".content-section");
+  const sectionArray = Array.from(sections);
+  let allSectionItems = [];
+  const detailTabBar = document.querySelector(".detail-tabs");
+
+  const mainProductImage = document.querySelector(".main-product-image");
+  const productImage = {
+    black: {
+      front: "pics/E_project/E_1/Main_black.png",
+      back: "pics/E_project/E_1/Main_black_2.png",
+    },
+
+    white: {
+      front: "pics/E_project/E_1/Main_white.png",
+      back: "pics/E_project/E_1/Main_white_2.png",
+    },
+
+    navy: {
+      front: "pics/E_project/E_1/Main_navy.png",
+      back: "pics/E_project/E_1/Main_navy_2.png",
+    },
+  };
+  let currentColor = localStorage.getItem("selectedColor") || "black";
+  let currentSize = localStorage.getItem("selectedSize") || "L";
+  let currentView = localStorage.getItem("selectedView") || "front";
+
+  const thumbnails = document.querySelectorAll(".thumbnail");
+  const frontThumbnail = thumbnails[0];
+  const backThumbnail = thumbnails[1];
+
+  const cartTotal = document.querySelector(".cart-total");
+  const clearCartBtn = document.querySelector(".clear-cart-btn");
+
+  thumbnails.forEach(function (thumb) {
+    thumb.addEventListener("click", function () {
+      thumbnails.forEach(function (item) {
+        item.classList.remove("active");
+      });
+
+      thumb.classList.add("active");
+
+      currentView = thumb.dataset.view;
+      localStorage.setItem("selectedView", currentView);
+
+      updateMainImage();
+      updateThumbnailImages();
+    });
+  });
+
+  function restoreThumbnailActive() {
+    thumbnails.forEach(function (thumb) {
+      thumb.classList.remove("active");
+
+      if (thumb.dataset.view === currentView) {
+        thumb.classList.add("active");
+      }
+    });
+  }
+  function updateMainImage() {
+    const nextImage = productImage[currentColor][currentView];
+    mainProductImage.src = nextImage;
+  }
+
+  function updateThumbnailImages() {
+    frontThumbnail.style.backgroundImage = `url(${productImage[currentColor].front})`;
+
+    backThumbnail.style.backgroundImage = `url(${productImage[currentColor].back})`;
+  }
+
+  let lastScrollY = window.scrollY;
+  let isScrollingDown = false;
+  let isUserScrolling = false;
+
+  let isTicking = false;
+  let isCompactMode = false;
+  let isScrolledShadowMode = false;
+  let isResizeTicking = false;
+  let currentSectionIndex = 0;
+  let isAutoScrolling = false;
+  let scrollIdleTimer = null;
+  let isScrollIdle = true;
+  let autoScrollTimer = null;
+
+  const scrollDirectionThreshold = 10;
+
+  function readScrollState() {
+    updateScrollIdleState();
+    updateScrollDirection();
+  }
+
+  function applyScrollDrivenUI() {
+    updateCompactUI();
+    updateActiveTab();
+  }
+
+  function renderScrollFrame() {
+    readScrollState();
+    applyScrollDrivenUI();
+  }
+
+  function initScrollUI() {
+    updateLayoutValues();
+    renderScrollFrame();
+  }
+
+  window.addEventListener("scroll", function () {
+    if (isTicking) {
+      return;
+    }
+
+    isTicking = true;
+
+    requestAnimationFrame(function () {
+      renderScrollFrame();
+
+      isTicking = false;
+    });
+  });
+
+  initScrollUI();
+
+  function applyCompactBoxUI(shouldCompact) {
+    if (isCompactMode === shouldCompact) {
+      return;
+    }
+
+    detailBox.classList.toggle("compact", shouldCompact);
+
+    isCompactMode = shouldCompact;
+  }
+
+  function applyTabShadowUI(shouldShowShadow) {
+    if (isScrolledShadowMode === shouldShowShadow) {
+      return;
+    }
+
+    detailTabBar.classList.toggle("scrolled", shouldShowShadow);
+
+    isScrolledShadowMode = shouldShowShadow;
+  }
+
+  function updateCompactUI() {
+    const compactUIState = getCompactUIState();
+
+    applyTabShadowUI(compactUIState.shouldShowShadow);
+
+    applyCompactBoxUI(compactUIState.shouldCompact);
+  }
+
+  function createSectionItems(indexList) {
+    return indexList
+      .filter(function (index) {
+        return sectionArray[index];
+      })
+      .map(function (index) {
+        return {
+          section: sectionArray[index],
+          index: index,
+        };
+      });
+  }
+
+  function findCurrentSection(sectionList, activeLine) {
+    let foundSection = null;
+
+    sectionList.some(function (item) {
+      const section = item.section;
+      const currentIndex = item.index;
+
+      const nextSection = sectionArray[currentIndex + 1];
+
+      const isPastSectionTop = activeLine >= section.offsetTop;
+
+      const isBeforeNextSection =
+        !nextSection || activeLine < nextSection.offsetTop;
+
+      if (isPastSectionTop && isBeforeNextSection) {
+        foundSection = {
+          id: section.id,
+          index: currentIndex,
+        };
+        return true;
+      }
+    });
+
+    return foundSection;
+  }
+
+  function getNearSectionItems() {
+    return createSectionItems([
+      currentSectionIndex - 1,
+      currentSectionIndex,
+      currentSectionIndex + 1,
+    ]);
+  }
+
+  function getCurrentSectionInfo(activeLine) {
+    const nearSections = getNearSectionItems();
+
+    let currentSectionInfo = findCurrentSection(nearSections, activeLine);
+
+    if (!currentSectionInfo) {
+      currentSectionInfo = findCurrentSection(allSectionItems, activeLine);
+    }
+
+    return currentSectionInfo;
+  }
+
+  function isSameActiveTab(sectionId) {
+    return currentActiveTab && currentActiveTab.dataset.target === sectionId;
+  }
+
+  function changeActiveTab(nextActiveTab) {
+    if (!nextActiveTab) {
+      return;
+    }
+
+    currentActiveTab.classList.remove("active");
+
+    nextActiveTab.classList.add("active");
+
+    currentActiveTab = nextActiveTab;
+  }
+
+  function updateCurrentSectionIndex(sectionInfo) {
+    currentSectionIndex = sectionInfo.index;
+  }
+
+  function getActiveLine() {
+    return window.scrollY + tabActiveOffset;
+  }
+
+  function hasPassedCompactPoint() {
+    return getCurrentScrollY() >= detailContent.offsetTop - 100;
+  }
+
+  function getCompactUIState() {
+    const shouldCompact = hasPassedCompactPoint();
+
+    const shouldShowShadow =
+      shouldCompact && isScrollingDown && isUserScrolling && !isScrollIdle;
+
+    return {
+      shouldCompact,
+      shouldShowShadow,
+    };
+  }
+
+  function updateActiveTab() {
+    if (isAutoScrolling) {
+      return;
+    }
+
+    const activeLine = getActiveLine();
+
+    const activeTabState = getCurrentSectionInfo(activeLine);
+
+    if (!activeTabState) {
+      return;
+    }
+    const currentSection = activeTabState.id;
+
+    if (isSameActiveTab(currentSection)) {
+      return;
+    }
+    const nextActiveTab = document.querySelector(
+      `.detail-tab[data-target="${currentSection}"]`,
+    );
+
+    changeActiveTab(nextActiveTab);
+
+    updateCurrentSectionIndex(activeTabState);
+  }
+
+  function updateLayoutValues() {
+    tabActiveOffset = detailTabBar.offsetHeight + 40;
+
+    allSectionItems = createSectionItems(
+      sectionArray.map(function (section, index) {
+        return index;
+      }),
+    );
+  }
+
+  function getCurrentScrollY() {
+    return window.scrollY;
+  }
+
+  function getScrollGap(currentScrollY) {
+    return Math.abs(currentScrollY - lastScrollY);
+  }
+
+  function handleAutoScrollDirection() {
+    isUserScrolling = false;
+    lastScrollY = window.scrollY;
+  }
+
+  function updateScrollDirection() {
+    if (isAutoScrolling) {
+      handleAutoScrollDirection();
+      return;
+    }
+
+    const currentScrollY = getCurrentScrollY();
+
+    const scrollGap = getScrollGap(currentScrollY);
+
+    if (scrollGap < scrollDirectionThreshold) {
+      return;
+    }
+
+    updateUserScrollDirection(currentScrollY);
+  }
+
+  function updateUserScrollDirection(currentScrollY) {
+    isScrollingDown = currentScrollY > lastScrollY;
+    isUserScrolling = true;
+    lastScrollY = currentScrollY;
+  }
+
+  function updateScrollIdleState() {
+    if (isAutoScrolling) {
+      isScrollIdle = false;
+      return;
+    }
+
+    isScrollIdle = false;
+
+    clearTimeout(scrollIdleTimer);
+
+    scrollIdleTimer = setTimeout(function () {
+      isScrollIdle = true;
+      isUserScrolling = false;
+    }, 120);
+  }
+
+  function startAutoScroll() {
+    isAutoScrolling = true;
+
+    clearTimeout(autoScrollTimer);
+
+    autoScrollTimer = setTimeout(function () {
+      isAutoScrolling = false;
+    }, 600);
+  }
+
+  function getSelectedOption(groupIndex) {
+    const activeBtn = document
+      .querySelectorAll(".option-group")
+      [groupIndex].querySelector(".option-btn.active");
+
+    if (!activeBtn) {
+      return "";
+    }
+
+    return activeBtn.textContent;
+  }
+
+  const optionGroups = document.querySelectorAll(".option-group");
+
+  optionGroups.forEach(function (group) {
+    const optionBtns = group.querySelectorAll(".option-btn");
+
+    optionBtns.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        optionBtns.forEach(function (item) {
+          item.classList.remove("active");
+        });
+
+        btn.classList.add("active");
+
+        if (btn.dataset.size) {
+          currentSize = btn.dataset.size;
+          localStorage.setItem("selectedSize", currentSize);
+        }
+        if (btn.dataset.color) {
+          currentColor = btn.dataset.color;
+
+          localStorage.setItem("selectedColor", currentColor);
+          updateMainImage();
+          updateThumbnailImages();
+        }
+
+        updateTotalPrice();
+      });
+    });
+  });
+
+  function restoreSelectedOptions() {
+    const savedColor = localStorage.getItem("selectedColor");
+    const savedSize = localStorage.getItem("selectedSize");
+
+    if (savedColor) {
+      const savedColorBtn = document.querySelector(
+        `.option-btn[data-color="${savedColor}"]`,
+      );
+
+      if (savedColorBtn) {
+        const colorBtns = document
+          .querySelectorAll(".option-group")[0]
+          .querySelectorAll(".option-btn");
+
+        colorBtns.forEach(function (btn) {
+          btn.classList.remove("active");
+        });
+
+        savedColorBtn.classList.add("active");
+        currentColor = savedColor;
+      }
+    }
+
+    if (savedSize) {
+      const savedSizeBtn = document.querySelector(
+        `.option-btn[data-size="${savedSize}"]`,
+      );
+
+      if (savedSizeBtn) {
+        const sizeBtns = document
+          .querySelectorAll(".option-group")[1]
+          .querySelectorAll(".option-btn");
+
+        sizeBtns.forEach(function (btn) {
+          btn.classList.remove("active");
+        });
+
+        savedSizeBtn.classList.add("active");
+        currentSize = savedSize;
+      }
+    }
+  }
+
+  const quantityNum = document.querySelector(".quantity-num");
+
+  const minusBtn = document.querySelectorAll(".quantity-btn")[0];
+  const plusBtn = document.querySelectorAll(".quantity-btn")[1];
+  const addCartBtn = document.querySelector(".add-cart-btn");
+
+  const directBuyBtn = document.querySelector(".direct-buy-btn");
+  const cartBuyBtn = document.querySelector(".cart-buy-btn");
+
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const cartList = document.querySelector(".cart-list");
+
+  plusBtn.addEventListener("click", function () {
+    let quantity = Number(quantityNum.textContent);
+    quantity++;
+    quantityNum.textContent = quantity;
+
+    updateTotalPrice();
+  });
+
+  minusBtn.addEventListener("click", function () {
+    let quantity = Number(quantityNum.textContent);
+
+    if (quantity <= 1) {
+      return;
+    }
+
+    quantity--;
+
+    quantityNum.textContent = quantity;
+
+    updateTotalPrice();
+  });
+
+  function saveCart() {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }
+
+  function getSelectedProductData() {
+    const activeColorBtn = document.querySelector(
+      `.option-group[data-type="color"] .option-btn.active`,
+    );
+
+    const activeSizeBtn = document.querySelector(
+      `.option-group[data-type="size"] .option-btn.active`,
+    );
+
+    const basePrice = 29000;
+
+    const sizeExtraPrice = Number(activeSizeBtn.dataset.price || 0);
+
+    const finalPrice = basePrice + sizeExtraPrice;
+
+    const image = productImage[currentColor].front;
+
+    return {
+      color: activeColorBtn.dataset.color,
+      colorText: activeColorBtn.textContent,
+
+      size: activeSizeBtn.dataset.size,
+      sizeText: activeSizeBtn.textContent,
+      finalPrice: finalPrice,
+
+      quantity: Number(quantityNum.textContent),
+      image: image,
+    };
+  }
+
+  function renderCart() {
+    if (cart.length === 0) {
+      cartList.textContent = "장바구니가 비어 있습니다.";
+      cartTotal.textContent = "장바구니 합계: 0원";
+      return;
+    }
+
+    cartList.innerHTML = "";
+
+    cart.forEach(function (item) {
+      const cartItem = document.createElement("div");
+      cartItem.classList.add("cart-item");
+      cartItem.innerHTML = `
+            <div class="cart-item-row">
+
+                <img
+                    src="${item.image}"
+                    class="cart-item-image"
+                    >
+
+                    <div class="cart-item-info">
+
+           <div class="cart-item-top">
+            ${item.colorText} / ${item.sizeText}
+            </div>
+
+            <div class="cart-item-bottom">
+            <div class="cart-item-actions">
+
+                <button
+                class="cart-quantity-btn"
+                data-action="minus"
+                data-id="${item.color}-${item.size}">
+                -
+                </button>
+
+                <span>
+                    ${item.quantity}개
+                    </span>
+
+                    <button
+                    class="cart-quantity-btn"
+                    data-action="plus"
+                    data-id="${item.color}-${item.size}">
+                    +
+                    </button>
+                    </div>
+<div class="cart-item-right">
+
+                    <strong>
+                        ${(item.finalPrice * item.quantity).toLocaleString()}원
+                        </strong>
+
+                        <button
+                        class="remove-cart-btn"
+                        data-id="${item.color}-${item.size}">
+                        삭제
+                        </button>
+                        </div>
+                        </div>
+                        </div>
+                        </div>
+                        `;
+      cartList.appendChild(cartItem);
+    });
+
+    const total = cart.reduce(function (sum, item) {
+      return sum + item.finalPrice * item.quantity;
+    }, 0);
+
+    cartTotal.textContent = "장바구니 합계: " + total.toLocaleString() + "원";
+  }
+
+  cartList.addEventListener("click", function (e) {
+    if (e.target.classList.contains("remove-cart-btn")) {
+      const removeId = e.target.dataset.id;
+
+      cart = cart.filter(function (item) {
+        return item.color + "-" + item.size !== removeId;
+      });
+
+      saveCart();
+      renderCart();
+      return;
+    }
+
+    if (e.target.classList.contains("cart-quantity-btn")) {
+      const action = e.target.dataset.action;
+      const targetId = e.target.dataset.id;
+
+      const targetItem = cart.find(function (item) {
+        return item.color + "-" + item.size === targetId;
+      });
+
+      if (!targetItem) {
+        return;
+      }
+
+      if (action === "plus") {
+        targetItem.quantity++;
+      }
+
+      if (action === "minus") {
+        targetItem.quantity--;
+
+        if (targetItem.quantity <= 0) {
+          cart = cart.filter(function (item) {
+            return item.color + "-" + item.size !== targetId;
+          });
+        }
+      }
+
+      saveCart();
+      renderCart();
+    }
+  });
+
+  addCartBtn.addEventListener("click", function () {
+    const selectedProduct = getSelectedProductData();
+
+    const existingItem = cart.find(function (item) {
+      return (
+        item.color === selectedProduct.color &&
+        item.size === selectedProduct.size
+      );
+    });
+
+    if (existingItem) {
+      existingItem.quantity += selectedProduct.quantity;
+    } else {
+      cart.push(selectedProduct);
+    }
+
+    saveCart();
+    renderCart();
+
+    quantityNum.textContent = 1;
+
+    updateTotalPrice();
+  });
+
+  directBuyBtn.addEventListener("click", function () {
+    const selectedProduct = getSelectedProductData();
+
+    const totalPrice = selectedProduct.finalPrice * selectedProduct.quantity;
+
+    alert(
+      selectedProduct.colorText +
+        " / " +
+        selectedProduct.sizeText +
+        " / " +
+        selectedProduct.quantity +
+        "개 /총" +
+        totalPrice.toLocaleString() +
+        "원 바로 구매합니다.",
+    );
+
+    
+    quantityNum.textContent = 1;
+    updateTotalPrice();
+  });
+
+  cartBuyBtn.addEventListener("click", function () {
+    if (cart.length === 0) {
+      alert("장바구니가 비어 있습니다");
+      return;
+    }
+
+    const total = cart.reduce(function (sum, item) {
+      return sum + item.finalPrice * item.quantity;
+    }, 0);
+
+    const totalQuantity = cart.reduce(function (sum, item) {
+      return sum + item.quantity;
+    }, 0);
+
+    alert(
+      totalQuantity +
+        "개 상품 / 총 " +
+        total.toLocaleString() +
+        "원 구매합니다.",
+    );
+
+    cart = [];
+    saveCart();
+    renderCart();
+    quantityNum.textContent = 1;
+    updateTotalPrice();
+  });
+
+  clearCartBtn.addEventListener("click", function () {
+    cart = [];
+
+    saveCart();
+    renderCart();
+  });
+
+  const totalPrice = document.querySelector(".total-price");
+
+  function updateTotalPrice() {
+    const basePrice = 29000;
+
+    const activeSizeBtn = document
+      .querySelectorAll(".option-group")[1]
+      .querySelector(".option-btn.active");
+
+    const sizeExtraPrice = Number(activeSizeBtn.dataset.price || 0);
+
+    const quantity = Number(quantityNum.textContent);
+
+    const total = (basePrice + sizeExtraPrice) * quantity;
+
+    totalPrice.textContent = total.toLocaleString() + "원";
+  }
+
+  restoreSelectedOptions();
+
+  updateTotalPrice();
+  updateThumbnailImages();
+  restoreThumbnailActive();
+  updateMainImage();
+  renderCart();
+</script>
