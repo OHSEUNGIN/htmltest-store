@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Research ET LAB</title>
+    <style>
+      body {
+        margin: 0;
+        color: white;
+        background-image: url("../../pics/E_project/E_2/about_img.png");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+      }
+
+      .site-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 40px;
+      }
+      .logo-box {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+      .logo-icon img {
+        width: 80px;
+        height: 80px;
+        object-fit: contain;
+      }
+      .logo-text h1 {
+        margin: 0;
+        font-size: 28px;
+      }
+      .logo-text p {
+        margin: 4px 0 0;
+        font-size: 12px;
+        color: #aaa;
+      }
+      .nav-menu {
+        display: flex;
+        gap: 24px;
+      }
+      .nav-menu a {
+        color: #d8ddff;
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+      }
+      .nav-menu a:hover {
+        color: #8ea2ff;
+      }
+
+      .sub-hero {
+        padding: 140px 40px 100px;
+        max-width: 900px;
+        background: rgba(5, 8, 22, 0.55);
+        backdrop-filter: blur(4px);
+      }
+
+      .sub-label {
+        margin: 0 0 16px;
+        font-size: 13px;
+        letter-spacing: 3px;
+        color: #8ea2ff;
+      }
+
+      .sub-hero h2 {
+        margin: 0 0 24px;
+        font-size: 30px;
+        line-height: 1.15;
+        letter-spacing: -1px;
+      }
+      .sub-desc {
+        max-width: 760px;
+        margin: 0;
+        font-size: 18px;
+        line-height: 1.8;
+        color: #c8cce8;
+      }
+
+      .mission-section {
+        display: flex;
+        gap: 32px;
+
+        padding: 0 40px 120px;
+      }
+      .mission-box {
+        flex: 1;
+
+        padding: 32px;
+
+        border-radius: 24px;
+
+        background: rgba(255, 255, 255, 0.04);
+
+        border: 1px solid rgba(142, 162, 255, 0.15);
+      }
+      .mission-box h3 {
+        margin: 0 0 20px;
+
+        font-size: 24px;
+      }
+      .mission-box p {
+        margin: 0;
+
+        line-height: 1.8;
+
+        color: #c8cce8;
+      }
+
+      .research-section {
+        padding: 0 40px 120px;
+        max-width: 1200px;
+      }
+
+      .research-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        gap: 40px;
+
+        padding: 40px 0;
+
+        border-bottom: 1px solid rgba(142, 162, 255, 0.18);
+      }
+
+      .research-content {
+        flex: 1;
+      }
+
+      .research-number {
+        color: #8ea2ff;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 2px;
+      }
+
+      .research-item h3 {
+        margin: 12px 0 16px;
+
+        font-size: 26px;
+      }
+
+      .research-item p {
+        margin: 0;
+
+        color: #c8cce8;
+
+        line-height: 1.8;
+        font-size: 16px;
+      }
+
+      .research-image {
+        width: 260px;
+        height: 160px;
+
+        object-fit: cover;
+
+        border-radius: 18px;
+
+        flex-shrink: 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="site-header">
+      <div class="logo-box">
+        <div class="logo-icon">
+          <img src="../../pics/E_project/E_2/logo.png" />
+        </div>
+
+        <div class="logo-text">
+          <h1>ET LAB</h1>
+          <p>Extraterrestrial Intelligence Laboratory</p>
+        </div>
+      </div>
+
+      <nav class="nav-menu">
+        <a href="../../E2-project-day1.html">HOME</a>
+        <a href="about.html">ABOUT</a>
+        <a href="research.html">RESEARCH</a>
+        <a href="members.html">MEMBERS</a>
+        <a href="publications.html">PUBLICATIONS</a>
+        <a href="projects.html">PROJECTS</a>
+        <a href="news.html">NEWS</a>
+        <a href="contact.html">CONTACT</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="sub-hero">
+        <p class="sub-label">AI FOR SETI</p>
+
+        <h2>Artificial Intelligence for Cosmic Signal Analysis</h2>
+
+        <p class="sub-desc">
+          AI for SETI 프로젝트는 인공지능을 활용하여 대규모 천문 관측 데이터를
+          분석하고, 사람이 놓치기 쉬운 미세한 신호 패턴을 찾아내는 연구입니다.
+        </p>
+      </section>
+
+      <section class="research-section">
+        <article class="research-item">
+          <div class="research-content">
+            <span class="research-number">01</span>
+
+            <h3>AI Objectives</h3>
+
+            <p>
+              방대한 우주 신호 데이터 속에서 반복성, 비정상적인 주파수 변화,
+              인공적 패턴의 가능성을 빠르게 탐지하는 분석 시스템을 개발합니다.
+            </p>
+          </div>
+
+          <img
+            src="../../pics/E_project/E_2/ai_objective.png"
+            class="research-image"
+          />
+        </article>
+
+        <article class="research-item">
+          <div class="research-content">
+            <span class="research-number">02</span>
+
+            <h3>Data Processing</h3>
+
+            <p>
+              전파망원경 관측 데이터, 스펙트로그램, 신호 강도 변화를 머신러닝
+              모델에 입력하여 후보 신호를 분류하고 우선순위를 평가합니다.
+            </p>
+          </div>
+          <img
+            src="../../pics/E_project/E_2/data_processing.png"
+            class="research-image"
+          />
+        </article>
+
+        <article class="research-item">
+          <div class="research-content">
+            <span class="research-number">03</span>
+
+            <h3>Pattern Recognition</h3>
+
+            <p>
+              인공지능은 자연적 잡음과 잠재적인 인공 신호를 구분할 수 있는가,
+              인간 연구자가 놓치는 약한 패턴을 발견할 수 있는가를 중심으로
+              연구합니다.
+            </p>
+          </div>
+          <img
+            src="../../pics/E_project/E_2/pattern_recognition.png"
+            class="research-image"
+          />
+        </article>
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>About ET LAB</title>
+    <style>
+      body {
+        margin: 0;
+        color: white;
+        background-image: url("../../pics/E_project/E_2/about_img.png");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+      }
+
+      .site-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 40px;
+      }
+      .logo-box {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+      .logo-icon img {
+        width: 80px;
+        height: 80px;
+        object-fit: contain;
+      }
+      .logo-text h1 {
+        margin: 0;
+        font-size: 28px;
+      }
+      .logo-text p {
+        margin: 4px 0 0;
+        font-size: 12px;
+        color: #aaa;
+      }
+      .nav-menu {
+        display: flex;
+        gap: 24px;
+      }
+      .nav-menu a {
+        color: #d8ddff;
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+      }
+      .nav-menu a:hover {
+        color: #8ea2ff;
+      }
+
+      .sub-hero {
+        padding: 140px 40px 100px;
+        max-width: 900px;
+        background: rgba(5, 8, 22, 0.55);
+        backdrop-filter: blur(4px);
+      }
+
+      .mission-section {
+        display: flex;
+        gap: 32px;
+
+        padding: 0 40px 120px;
+      }
+      .mission-box {
+        flex: 1;
+
+        padding: 32px;
+
+        border-radius: 24px;
+
+        background: rgba(255, 255, 255, 0.04);
+
+        border: 1px solid rgba(142, 162, 255, 0.15);
+      }
+      .mission-box h3 {
+        margin: 0 0 20px;
+
+        font-size: 24px;
+      }
+      .mission-box p {
+        margin: 0;
+
+        line-height: 1.8;
+
+        color: #c8cce8;
+      }
+
+      .members-section {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 40px 120px;
+      }
+      .member-group-title {
+        margin: 80px 0 30px;
+        font-size: 28px;
+      }
+      .member-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 28px;
+      }
+      .member-card {
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(142, 162, 255, 0.15);
+        border-radius: 24px;
+        overflow: hidden;
+        transition: 0.25s;
+      }
+      .member-card img {
+        width: 100%;
+        height: 280px;
+        object-fit: cover;
+        background: #10182f;
+      }
+      .member-info {
+        padding: 24px;
+      }
+
+      .member-info h4 {
+        margin: 0 0 8px;
+        font-size: 24px;
+      }
+
+      .member-role {
+        color: #8ea2ff;
+        font-weight: 700;
+        margin-bottom: 16px;
+      }
+      .member-desc {
+        color: #c8cce8;
+        line-height: 1.7;
+      }
+      .member-contact {
+        margin-top: 18px;
+        padding-top: 18px;
+
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .member-contact p {
+        margin: 6px 0;
+
+        font-size: 14px;
+
+        color: #aeb8ea;
+      }
+      .member-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+
+        margin-top: 16px;
+      }
+      .member-tags span {
+        padding: 6px 12px;
+
+        border-radius: 999px;
+
+        background: rgba(142, 162, 255, 0.15);
+
+        color: #9fb0ff;
+
+        font-size: 12px;
+
+        font-weight: 600;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="site-header">
+      <div class="logo-box">
+        <div class="logo-icon">
+          <img src="../../pics/E_project/E_2/logo.png" />
+        </div>
+
+        <div class="logo-text">
+          <h1>ET LAB</h1>
+          <p>Extraterrestrial Intelligence Laboratory</p>
+        </div>
+      </div>
+
+      <nav class="nav-menu">
+        <a href="../../E2-project-day1.html">HOME</a>
+        <a href="about.html">ABOUT</a>
+        <a href="research.html">RESEARCH</a>
+        <a href="members.html">MEMBERS</a>
+        <a href="publications.html">PUBLICATIONS</a>
+        <a href="projects.html">PROJECTS</a>
+        <a href="news.html">NEWS</a>
+        <a href="contact.html">CONTACT</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="members-section">
+        <h3 class="member-group-title">Laboratory Members</h3>
+
+        <div class="member-grid">
+          <article class="member-card">
+            <img
+              src="../../pics/E_project/E_2/Dr_Sarah_Bennett.png"
+              alt="Dr_Sarah_Bennett"
+            />
+
+            <div class="member-info">
+              <h4>Dr. Sarah Bennett</h4>
+              <p class="member-role">Laboratory Director</p>
+
+              <p class="member-desc">
+                Researches SETI, radio astronomy, and large-scale signal
+                detection systems for extraterrestrial intelligence.
+              </p>
+              <div class="member-tags">
+                <span>SETI</span>
+                <span>Radio Astronomy</span>
+                <span>Signal Detection</span>
+              </div>
+              <div class="member-contact">
+                <p>Email: sbennett@etlab.edu</p>
+                <p>Office: Room 501</p>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <h3 class="member-group-title">Research Staff</h3>
+
+        <div class="member-grid">
+          <article class="member-card">
+            <img
+              src="../../pics/E_project/E_2/Dr_Michael_Chen.png"
+              alt="Dr_Michael_Chen"
+            />
+
+            <div class="member-info">
+              <h4>Dr. Michael Chen</h4>
+
+              <p class="member-role">Signal Analysis Researcher</p>
+
+              <p class="member-desc">
+                Develops machine learning methods for astronomical signal
+                classification.
+              </p>
+              <div class="member-tags">
+                <span>Machine Learning</span>
+                <span>Data Analysis</span>
+                <span>AI</span>
+              </div>
+              <div class="member-contact">
+                <p>Email: mchen@etlab.edu</p>
+                <p>Office: Room 423</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="member-card">
+            <img
+              src="../../pics/E_project/E_2/Dr_Elena_Rodriguez.png"
+              alt="Dr_Elena_Rodriguez"
+            />
+
+            <div class="member-info">
+              <h4>Dr. Elena Rodriguez</h4>
+
+              <p class="member-role">Exoplanet Researcher</p>
+
+              <p class="member-desc">
+                Studies planetary atmospheres and habitability indicators in
+                distant star systems.
+              </p>
+              <div class="member-tags">
+                <span>Exoplanets</span>
+                <span>Habitability</span>
+                <span>Atmospheres</span>
+              </div>
+              <div class="member-contact">
+                <p>Email: erodriguez@etlab.edu</p>
+                <p>Office: Room 427</p>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <h3 class="member-group-title">Graduate Students</h3>
+
+        <div class="member-grid">
+          <article class="member-card">
+            <img src="../../pics/E_project/E_2/Alex_Kim.png" alt="Alex_Kim" />
+
+            <div class="member-info">
+              <h4>Alex Kim</h4>
+
+              <p class="member-role">PhD Candidate</p>
+
+              <p class="member-desc">
+                Focuses on radio signal pattern detection and anomaly analysis.
+              </p>
+              <div class="member-tags">
+                <span>Signal Processing</span>
+                <span>Pattern Analysis</span>
+              </div>
+              <div class="member-contact">
+                <p>Email: alexkim@etlab.edu</p>
+                <p>Office: Graduate Office 301</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="member-card">
+            <img
+              src="../../pics/E_project/E_2/Emma_Wilson.png"
+              alt="Emma_Wilson"
+            />
+
+            <div class="member-info">
+              <h4>Emma Wilson</h4>
+
+              <p class="member-role">PhD Candidate</p>
+
+              <p class="member-desc">
+                Investigates machine learning applications for SETI datasets.
+              </p>
+              <div class="member-tags">
+                <span>Machine Learning</span>
+                <span>SETI Data</span>
+              </div>
+              <div class="member-contact">
+                <p>Email: ewilson@etlab.edu</p>
+                <p>Office: Graduate Office 302</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="member-card">
+            <img
+              src="../../pics/E_project/E_2/Daivd_Park.png"
+              alt="Daivd_Park"
+            />
+
+            <div class="member-info">
+              <h4>David Park</h4>
+
+              <p class="member-role">MSc Student</p>
+
+              <p class="member-desc">
+                Studies exoplanet climate modeling and atmospheric simulations.
+              </p>
+              <div class="member-tags">
+                <span>Climate Modeling</span>
+                <span>Planetary Science</span>
+              </div>
+              <div class="member-contact">
+                <p>Email: dpark@etlab.edu</p>
+                <p>Office: Graduate Office 303</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

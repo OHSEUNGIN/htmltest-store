@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Research ET LAB</title>
+    <style>
+      body {
+        margin: 0;
+        color: white;
+        background-image: url("../../pics/E_project/E_2/about_img.png");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+      }
+
+      .site-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 40px;
+      }
+      .logo-box {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+      .logo-icon img {
+        width: 80px;
+        height: 80px;
+        object-fit: contain;
+      }
+      .logo-text h1 {
+        margin: 0;
+        font-size: 28px;
+      }
+      .logo-text p {
+        margin: 4px 0 0;
+        font-size: 12px;
+        color: #aaa;
+      }
+      .nav-menu {
+        display: flex;
+        gap: 24px;
+      }
+      .nav-menu a {
+        color: #d8ddff;
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+      }
+      .nav-menu a:hover {
+        color: #8ea2ff;
+      }
+
+      .sub-hero {
+        padding: 140px 40px 100px;
+        max-width: 900px;
+        background: rgba(5, 8, 22, 0.55);
+        backdrop-filter: blur(4px);
+      }
+
+      .sub-label {
+        margin: 0 0 16px;
+        font-size: 13px;
+        letter-spacing: 3px;
+        color: #8ea2ff;
+      }
+
+      .sub-hero h2 {
+        margin: 0 0 24px;
+        font-size: 30px;
+        line-height: 1.15;
+        letter-spacing: -1px;
+      }
+      .sub-desc {
+        max-width: 760px;
+        margin: 0;
+        font-size: 18px;
+        line-height: 1.8;
+        color: #c8cce8;
+      }
+
+      .mission-section {
+        display: flex;
+        gap: 32px;
+
+        padding: 0 40px 120px;
+      }
+      .mission-box {
+        flex: 1;
+
+        padding: 32px;
+
+        border-radius: 24px;
+
+        background: rgba(255, 255, 255, 0.04);
+
+        border: 1px solid rgba(142, 162, 255, 0.15);
+      }
+      .mission-box h3 {
+        margin: 0 0 20px;
+
+        font-size: 24px;
+      }
+      .mission-box p {
+        margin: 0;
+
+        line-height: 1.8;
+
+        color: #c8cce8;
+      }
+
+      .research-section {
+        padding: 0 40px 120px;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+      }
+      .research-card {
+        padding: 32px;
+        border-radius: 24px;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(142, 162, 255, 0.15);
+        transition: 0.25s;
+
+        display: block;
+        text-decoration: none;
+        color: white;
+      }
+      .research-card:hover {
+        transform: translateY(-4px);
+        border-color: rgba(142, 162, 255, 0.4);
+      }
+      .research-card h3 {
+        margin: 0 0 16px;
+      }
+      .research-card p {
+        margin: 0;
+        color: #c8cce8;
+        line-height: 1.8;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="site-header">
+      <div class="logo-box">
+        <div class="logo-icon">
+          <img src="../../pics/E_project/E_2/logo.png" />
+        </div>
+
+        <div class="logo-text">
+          <h1>ET LAB</h1>
+          <p>Extraterrestrial Intelligence Laboratory</p>
+        </div>
+      </div>
+
+      <nav class="nav-menu">
+        <a href="../../E2-project-day1.html">HOME</a>
+        <a href="about.html">ABOUT</a>
+        <a href="research.html">RESEARCH</a>
+        <a href="members.html">MEMBERS</a>
+        <a href="publications.html">PUBLICATIONS</a>
+        <a href="projects.html">PROJECTS</a>
+        <a href="news.html">NEWS</a>
+        <a href="contact.html">CONTACT</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="sub-hero">
+        <p class="sub-label">RESEARCH</p>
+
+        <h2>Current Research Programs</h2>
+
+        <p class="sub-desc">
+          ET LAB은 전파 신호 분석, 외계 행성 탐사, 인공지능 기반 데이터 처리 등
+          다양한 연구를 수행하고 있습니다.
+        </p>
+      </section>
+
+      <section class="research-section">
+        <a href="signal-detection.html" class="research-card">
+          <h3>Signal Detection</h3>
+          <p>비정상적인 우주 전파 신호를 탐지하고 분석합니다.</p>
+        </a>
+
+        <a href="exoplanet-habitability.html" class="research-card">
+          <h3>Exoplanet Habitability</h3>
+          <p>
+            외계 행성의 궤도, 항성 환경, 대기 조건 등을 바탕으로 생명체가 존재할
+            수 있는 가능성을 연구합니다.
+          </p>
+        </a>
+
+        <a href="ai-for-seti.html" class="research-card">
+          <h3>AI for SETI</h3>
+          <p>인공지능을 활용하여 대규모 관측 데이터를 분석합니다.</p>
+        </a>
+      </section>
+    </main>
+  </body>
+</html>

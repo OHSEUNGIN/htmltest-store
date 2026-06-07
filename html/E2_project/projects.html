@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>About ET LAB</title>
+    <style>
+      body {
+        margin: 0;
+        color: white;
+        background-image: url("../../pics/E_project/E_2/about_img.png");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+      }
+
+      .site-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 40px;
+      }
+      .logo-box {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+      .logo-icon img {
+        width: 80px;
+        height: 80px;
+        object-fit: contain;
+      }
+      .logo-text h1 {
+        margin: 0;
+        font-size: 28px;
+      }
+      .logo-text p {
+        margin: 4px 0 0;
+        font-size: 12px;
+        color: #aaa;
+      }
+      .nav-menu {
+        display: flex;
+        gap: 24px;
+      }
+      .nav-menu a {
+        color: #d8ddff;
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+      }
+      .nav-menu a:hover {
+        color: #8ea2ff;
+      }
+
+      .projects-section {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 120px 40px;
+      }
+
+      .page-label {
+        color: #8ea2ff;
+        letter-spacing: 3px;
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      .projects-section h2 {
+        margin: 20px 0;
+        font-size: 56px;
+      }
+
+      .page-desc {
+        max-width: 700px;
+        line-height: 1.8;
+        color: #c8cce8;
+      }
+
+      .project-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 28px;
+
+        margin-top: 70px;
+      }
+
+      .project-card {
+        padding: 32px;
+        border-radius: 24px;
+
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(142, 162, 255, 0.15);
+      }
+
+      .project-status {
+        display: inline-block;
+
+        margin-bottom: 20px;
+        padding: 6px 12px;
+
+        border-radius: 999px;
+
+        background: rgba(142, 162, 255, 0.16);
+        color: #9fb0ff;
+
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 1px;
+      }
+
+      .project-card h3 {
+        margin: 0 0 16px;
+        font-size: 26px;
+      }
+
+      .project-card p {
+        margin: 0;
+        line-height: 1.8;
+        color: #c8cce8;
+      }
+      .project-period {
+        margin: 0 0 16px;
+
+        color: #8ea2ff;
+
+        font-size: 14px;
+
+        font-weight: 600;
+      }
+      .meta-label {
+        font-size: 11px;
+
+        letter-spacing: 1.5px;
+
+        color: #7e88b7;
+
+        font-weight: 700;
+      }
+
+      .meta-value {
+        color: #8ea2ff;
+
+        font-size: 15px;
+
+        font-weight: 700;
+      }
+      .project-meta {
+        margin-bottom: 24px;
+
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+      .facility-section {
+        margin-top: -30px;
+      }
+
+      .facility-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 28px;
+
+        margin-top: 50px;
+      }
+
+      .facility-card {
+        overflow: hidden;
+
+        border-radius: 24px;
+
+        background: rgba(255, 255, 255, 0.04);
+
+        border: 1px solid rgba(142, 162, 255, 0.15);
+      }
+
+      .facility-card img {
+        width: 100%;
+        height: 240px;
+
+        object-fit: cover;
+      }
+
+      .facility-card h3 {
+        margin: 24px 24px 12px;
+      }
+
+      .facility-card p {
+        margin: 0 24px 24px;
+
+        line-height: 1.8;
+
+        color: #c8cce8;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="site-header">
+      <div class="logo-box">
+        <div class="logo-icon">
+          <img src="../../pics/E_project/E_2/logo.png" />
+        </div>
+
+        <div class="logo-text">
+          <h1>ET LAB</h1>
+          <p>Extraterrestrial Intelligence Laboratory</p>
+        </div>
+      </div>
+
+      <nav class="nav-menu">
+        <a href="../../E2-project-day1.html">HOME</a>
+        <a href="about.html">ABOUT</a>
+        <a href="research.html">RESEARCH</a>
+        <a href="members.html">MEMBERS</a>
+        <a href="publications.html">PUBLICATIONS</a>
+        <a href="projects.html">PROJECTS</a>
+        <a href="news.html">NEWS</a>
+        <a href="contact.html">CONTACT</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="projects-section">
+        <p class="page-label">PROJECTS</p>
+
+        <h2>Ongoing Research Projects</h2>
+
+        <p class="page-desc">
+          Current research initiatives at ET LAB focused on extraterrestrial
+          intelligence, exoplanet environments, and astronomical data.
+        </p>
+        <div class="project-grid">
+          <article class="project-card">
+            <span class="project-status"> ONGOING </span>
+
+            <h3>AI for SETI</h3>
+
+            <div class="project-meta">
+              <span class="meta-label"> PROJECT PERIOD </span>
+
+              <span class="meta-value"> 2025 - Present </span>
+            </div>
+
+            <p>
+              Machine learning systems for detecting unusual signal patterns in
+              large-scale astronomical observation data.
+            </p>
+          </article>
+
+          <article class="project-card">
+            <span class="project-status">ONGOING</span>
+
+            <h3>Exoplanet Habitability</h3>
+
+            <div class="project-meta">
+              <span class="meta-label"> PROJECT PERIOD </span>
+
+              <span class="meta-value"> 2024 - Present </span>
+            </div>
+
+            <p>
+              Research on planetary atmospheres, climate stability, and
+              environmental conditions that may support life.
+            </p>
+          </article>
+
+          <article class="project-card">
+            <span class="project-status">ONGOING</span>
+
+            <h3>Deep Space Signal Archive</h3>
+
+            <div class="project-meta">
+              <span class="meta-label"> PROJECT PERIOD </span>
+
+              <span class="meta-value"> 2023 - Present </span>
+            </div>
+
+            <p>
+              A structured archive for organizing, reviewing, and comparing
+              candidate signals from deep-space observations.
+            </p>
+          </article>
+        </div>
+      </section>
+      <section class="facility-section">
+        <p class="page-label">RESEARCH FACILITIES</p>
+
+        <h2>Equipment & Infrastructure</h2>
+
+        <div class="facility-grid">
+          <article class="facility-card">
+            <img src="../../pics/E_project/E_2/radio_telescope.png" />
+
+            <h3>Radio Telescope Array</h3>
+
+            <p>
+              Collects radio emissions from distant astronomical sources and
+              candidate extraterrestrial signals.
+            </p>
+          </article>
+
+          <article class="facility-card">
+            <img src="../../pics/E_project/E_2/data_center.png" />
+
+            <h3>Signal Processing Center</h3>
+
+            <p>
+              Processes large-scale observation data using machine learning and
+              automated classification systems.
+            </p>
+          </article>
+
+          <article class="facility-card">
+            <img src="../../pics/E_project/E_2/server_room.png" />
+
+            <h3>Research Data Archive</h3>
+
+            <p>
+              Stores and organizes observational datasets for long-term analysis
+              and cross-project collaboration.
+            </p>
+          </article>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

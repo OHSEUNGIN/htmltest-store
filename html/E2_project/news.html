@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>About ET LAB</title>
+    <style>
+      body {
+        margin: 0;
+        color: white;
+        background-image: url("../../pics/E_project/E_2/about_img.png");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+      }
+
+      .site-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 40px;
+      }
+      .logo-box {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+      .logo-icon img {
+        width: 80px;
+        height: 80px;
+        object-fit: contain;
+      }
+      .logo-text h1 {
+        margin: 0;
+        font-size: 28px;
+      }
+      .logo-text p {
+        margin: 4px 0 0;
+        font-size: 12px;
+        color: #aaa;
+      }
+      .nav-menu {
+        display: flex;
+        gap: 24px;
+      }
+      .nav-menu a {
+        color: #d8ddff;
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+      }
+      .nav-menu a:hover {
+        color: #8ea2ff;
+      }
+
+      .news-hero {
+        max-width: 1000px;
+        margin: 100px auto;
+        padding: 60px;
+
+        background: rgba(5, 8, 22, 0.7);
+        backdrop-filter: blur(6px);
+
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+
+        text-align: center;
+      }
+
+      .news-hero h2 {
+        margin-top: 0;
+        margin-bottom: 20px;
+
+        font-size: 48px;
+      }
+
+      .news-hero p {
+        margin: 0 auto;
+
+        max-width: 700px;
+
+        color: #cfd6ff;
+
+        line-height: 1.8;
+        font-size: 18px;
+      }
+      .news-section {
+        max-width: 1100px;
+
+        margin: 0 auto 100px;
+
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+
+        gap: 24px;
+      }
+
+      .news-card {
+        padding: 28px;
+
+        background: rgba(5, 8, 22, 0.75);
+
+        border-radius: 20px;
+
+        border: 1px solid rgba(255, 255, 255, 0.1);
+
+        backdrop-filter: blur(6px);
+
+        transition: 0.3s;
+      }
+
+      .news-date {
+        margin-top: 0;
+
+        color: #8ea2ff;
+
+        font-size: 14px;
+      }
+
+      .news-card h3 {
+        margin: 12px 0;
+
+        line-height: 1.4;
+      }
+
+      .news-card p {
+        line-height: 1.7;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="site-header">
+      <div class="logo-box">
+        <div class="logo-icon">
+          <img src="../../pics/E_project/E_2/logo.png" />
+        </div>
+
+        <div class="logo-text">
+          <h1>ET LAB</h1>
+          <p>Extraterrestrial Intelligence Laboratory</p>
+        </div>
+      </div>
+
+      <nav class="nav-menu">
+        <a href="../../E2-project-day1.html">HOME</a>
+        <a href="about.html">ABOUT</a>
+        <a href="research.html">RESEARCH</a>
+        <a href="members.html">MEMBERS</a>
+        <a href="publications.html">PUBLICATIONS</a>
+        <a href="projects.html">PROJECTS</a>
+        <a href="news.html">NEWS</a>
+        <a href="contact.html">CONTACT</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="news-hero">
+        <h2>Lab News</h2>
+        <p>
+          Latest updates from ET LAB, including research progress, facility
+          developments, publications, and public announcements.
+        </p>
+      </section>
+
+      <section class="news-section">
+        <div class="news-card">
+          <p class="news-date">2026.06.08</p>
+          <h3>New Signal Processing Center Begins Operation</h3>
+          <p>
+            ET LAB has launched a new data processing facility to support
+            large-scale radio signal analysis.
+          </p>
+        </div>
+
+        <div class="news-card">
+          <p class="news-date">2026.05.24</p>
+          <h3>AI-Based Candidate Signal Review System Updated</h3>
+          <p>
+            The research team improved its machine learning pipeline for
+            classifying unusual signal patterns.
+          </p>
+        </div>
+
+        <div class="news-card">
+          <p class="news-date">2026.04.17</p>
+          <h3>International Collaboration on Exoplanet Habitability</h3>
+          <p>
+            ET LAB will collaborate with partner institutes to compare
+            observational data from nearby exoplanet systems.
+          </p>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
